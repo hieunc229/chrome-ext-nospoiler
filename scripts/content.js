@@ -11,7 +11,7 @@
 function refresh() {
 
     chrome.storage.sync.get(['items'], function (result) {
-        var all = document.querySelectorAll("h1,p,h3,h2,a");
+        var all = document.querySelectorAll("h1,p,h3,h2,a,span");
         var items = result.items;
         var i = 0;
         all.forEach(el => {
