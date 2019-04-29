@@ -8,9 +8,6 @@ chrome.browserAction.onClicked.addListener(function (tab) {
 	});
 });
 
-// chrome.tabs.onActiveChanged.addListener(function (activeInfo) {
-
-// });
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 	if (changeInfo.status === "completed") {

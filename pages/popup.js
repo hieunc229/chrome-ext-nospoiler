@@ -40,6 +40,7 @@ function remove(ev) {
     let term = ev.target.dataset.term;
     removeItem(term);
 }
+
 var refreshTerms = () => {
 
     listElement.innerHTML = "";

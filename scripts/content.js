@@ -1,13 +1,3 @@
-// chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
-//     // If the received message has the expected format...
-//     if (msg.text === 'report_back') {
-//         // Call the specified callback, passing
-//         // the web-page's DOM content as argument
-//         console.log(document.all[0]);
-//         sendResponse(document.all[0].outerHTML);
-//     }
-// });
-
 function refresh() {
 
     chrome.storage.sync.get(['items'], function (result) {
