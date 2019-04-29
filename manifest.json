@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "NoSpoiler",
-    "description": "Filter what you don't want to see",
+    "description": "Filter out (remove) all content using keywords. Take back the control of what you don't want to see",
     "version": "1",
     "author": "Hieu C. Nguyen",
    "browser_action": {
