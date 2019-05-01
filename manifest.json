@@ -20,12 +20,8 @@
       "js": ["scripts/content.js"]
     }],
    "permissions": [
-     "https://*/*",
-     "http://*/*",
-     "tabs",
      "storage",
-     "activeTab",
-     "webNavigation"
+     "activeTab"
    ],
    "web_accessible_resources": ["pages/popup.html"]
 }

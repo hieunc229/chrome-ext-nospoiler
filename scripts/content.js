@@ -30,7 +30,8 @@ function recursiveFilter(node, opts) {
 
 function observeDOMChanges() {
 
-    observer = new MutationObserver(function (mutationsList, observer) {
+    observer = new MutationObserver(function (mutationsList) {
+
         let opts = { results: [] };
 
         for (var mutation of mutationsList) {
@@ -40,13 +41,14 @@ function observeDOMChanges() {
         };
 
         opts.results.forEach(node => {
-            
             if (node.style) {
                 node.style.opacity = 0;
             } else {
-                console.log("No style", node);
+                node.parentElement.style.opacity = 0;
             }
-        })
+        });
+
+        chrome.runtime.sendMessage({ type: "nsupdate", count: opts.results.length });
     });
 
     // Start observing the target node for configured mutations
@@ -75,7 +77,7 @@ function refresh() {
         });
 
         // console.log("No Spoiler removes", i, "related content");
-        chrome.runtime.sendMessage({ type: "nsupdate", count: i });
+        chrome.runtime.sendMessage({ type: "nsupdate", total: i });
     })
 }
 

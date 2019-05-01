@@ -19,6 +19,14 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request.type == "nsupdate") {
-		chrome.browserAction.setBadgeText({ text: request.count + "" });
+
+		if (request.total) {
+			chrome.browserAction.setBadgeText({ text: request.total + "" });
+		} else if (request.count) {
+			chrome.browserAction.getBadgeText({}, result => {
+				
+				chrome.browserAction.setBadgeText({ text: (parseInt(result) + request.count) + "" });
+			});
+		}
 	}
 });
